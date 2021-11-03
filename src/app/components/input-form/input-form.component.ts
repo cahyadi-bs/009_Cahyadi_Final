@@ -80,7 +80,7 @@ export class InputFormComponent implements OnInit {
     if(this.inputForm.invalid){
       return
     }
-    console.log(this.inputForm.value);
+    //console.log(this.inputForm.value);
     if(this.isAddMode){
       this.createPayment(this.inputForm.value)
     } else {

@@ -8,8 +8,12 @@ import { Payment } from '../models/Payment';
   providedIn: 'root'
 })
 export class PaymentService {
+  
 
-  endpoint:string = 'http://localhost:5000/api'
+  //Endpoint untuk Lokal
+  //endpoint:string = 'http://localhost:5000/api'
+  //Endpoint Heroku
+  endpoint:string = 'https://paymentapi-cbs.herokuapp.com/api'
 
   constructor(private http:HttpClient) { }
 

@@ -7,7 +7,8 @@
             id="cardOwnerName" 
             placeholder="Full Name"
             formControlName="cardOwnerName" 
-            [ngClass]="{'border border-danger': f.cardOwnerName.errors && submitted, 'border border-success' : !f.cardOwnerName.errors && submitted }">
+            [ngClass]="{'border border-danger': f.cardOwnerName.errors && submitted, 'border border-success' : !f.cardOwnerName.errors && submitted }"
+            required>
         <div *ngIf="submitted && f.cardOwnerName.errors">
             <small *ngIf="f.cardOwnerName.errors?.required" class="form-text text-danger" >Card Owner Name is required</small>
         </div>
@@ -21,7 +22,8 @@
             id="cardNumber" 
             placeholder="16 Digit Card Number"
             formControlName="cardNumber"
-            [ngClass]="{'border border-danger': f.cardNumber.errors && submitted, 'border border-success' : !f.cardNumber.errors && submitted }">
+            [ngClass]="{'border border-danger': f.cardNumber.errors && submitted, 'border border-success' : !f.cardNumber.errors && submitted }"
+            autocomplete="off" required> 
         <div *ngIf="submitted && f.cardNumber.errors">
             <small *ngIf="f.cardNumber.errors?.required" class="form-text text-danger" >Card Number is required</small>
             <small *ngIf="f.cardNumber.errors?.pattern" class="form-text text-danger" >Numeric only</small>
@@ -37,7 +39,8 @@
                 class="form-control" 
                 placeholder="Security Code"
                 formControlName="securityCode"
-                [ngClass]="{'border border-danger': f.securityCode.errors && submitted, 'border border-success' : !f.securityCode.errors && submitted }">
+                [ngClass]="{'border border-danger': f.securityCode.errors && submitted, 'border border-success' : !f.securityCode.errors && submitted }"
+                autocomplete="off" required>
             <div *ngIf="submitted && f.securityCode.errors">
                 <small *ngIf="f.securityCode.errors?.required" class="form-text text-danger" >Security Code is required</small>
                 <small *ngIf="f.securityCode.errors?.pattern" class="form-text text-danger" >Numeric only</small>
@@ -52,7 +55,8 @@
                 class="form-control" 
                 placeholder="MM/YY"
                 formControlName="expirationDate"
-                [ngClass]="{'border border-danger': f.expirationDate.errors && submitted, 'border border-success' : !f.expirationDate.errors && submitted }">
+                [ngClass]="{'border border-danger': f.expirationDate.errors && submitted, 'border border-success' : !f.expirationDate.errors && submitted }"
+                autocomplete="off" required>
             <div *ngIf="submitted && f.expirationDate.errors">
                 <small *ngIf="f.expirationDate.errors?.required" class="form-text text-danger" >Valid Through is required</small>
                 <small *ngIf="f.expirationDate.errors?.pattern" class="form-text text-danger" >Please enter a valid date in MM/YY format.</small>

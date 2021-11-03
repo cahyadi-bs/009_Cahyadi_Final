@@ -52,5 +52,9 @@ export class TableComponent implements OnInit {
     this.eventHandler.emit(id);
   }
 
+  sortByID(){
+    return this.payments.sort((a, b) => (a.paymentDetailId > b.paymentDetailId) ? 1 : -1);
+  }
+
 
 }
