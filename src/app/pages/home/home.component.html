@@ -1,0 +1,11 @@
+<app-header [data]="header"></app-header>
+<div class="container my-20 mt-5">
+    <div class="row">
+        <div class="col-lg-4">
+            <app-input-form [paymentID]="paymentId" (inputHandler)="updateId(0)" (inputHandler2)="getAllPayments()"></app-input-form>
+        </div>
+        <div class="col-lg-8">
+            <app-table [payments]="payments"  (eventHandler)="updateId($event)"></app-table>
+        </div>
+    </div>
+</div>

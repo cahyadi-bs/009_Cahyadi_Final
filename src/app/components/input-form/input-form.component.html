@@ -1,0 +1,77 @@
+<form [formGroup]="inputForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="cardNumber">CARD OWNER NAME</label>
+        <input 
+            (change)="changeState(false)"
+            type="text" 
+            class="form-control" 
+            id="cardOwnerName" 
+            placeholder="Full Name"
+            formControlName="cardOwnerName" 
+            [ngClass]="{'border border-danger': f.cardOwnerName.errors && submitted, 'border border-success' : !f.cardOwnerName.errors && submitted }">
+        <div *ngIf="submitted && f.cardOwnerName.errors">
+            <small *ngIf="f.cardOwnerName.errors?.required" class="form-text text-danger" >Card Owner Name is required</small>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="cardNumber">CARD NUMBER</label>
+        <input 
+            type="text"
+            maxlength="16" 
+            class="form-control" 
+            id="cardNumber" 
+            placeholder="16 Digit Card Number"
+            formControlName="cardNumber"
+            [ngClass]="{'border border-danger': f.cardNumber.errors && submitted, 'border border-success' : !f.cardNumber.errors && submitted }">
+        <div *ngIf="submitted && f.cardNumber.errors">
+            <small *ngIf="f.cardNumber.errors?.required" class="form-text text-danger" >Card Number is required</small>
+            <small *ngIf="f.cardNumber.errors?.pattern" class="form-text text-danger" >Numeric only</small>
+            <small *ngIf="f.cardNumber.errors?.minlength && !f.cardNumber.errors?.pattern" class="form-text text-danger" >Card Number must be exactly 16 Number</small>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for="securityCode">SECURITY CODE</label>
+            <input 
+                type="password" 
+                id="securityCode" 
+                class="form-control" 
+                placeholder="Security Code"
+                formControlName="securityCode"
+                [ngClass]="{'border border-danger': f.securityCode.errors && submitted, 'border border-success' : !f.securityCode.errors && submitted }">
+            <div *ngIf="submitted && f.securityCode.errors">
+                <small *ngIf="f.securityCode.errors?.required" class="form-text text-danger" >Security Code is required</small>
+                <small *ngIf="f.securityCode.errors?.pattern" class="form-text text-danger" >Numeric only</small>
+            <small *ngIf="f.securityCode.errors?.minlength && !f.securityCode.errors?.pattern" class="form-text text-danger" >Security Code minimal 4 number</small>
+            </div>
+        </div>
+        <div class="col">
+            <label for="expirationDate">VALID THROUGH</label>
+            <input 
+                type="text" 
+                id="expirationDate" 
+                class="form-control" 
+                placeholder="MM/YY"
+                formControlName="expirationDate"
+                [ngClass]="{'border border-danger': f.expirationDate.errors && submitted, 'border border-success' : !f.expirationDate.errors && submitted }">
+            <div *ngIf="submitted && f.expirationDate.errors">
+                <small *ngIf="f.expirationDate.errors?.required" class="form-text text-danger" >Valid Through is required</small>
+                <small *ngIf="f.expirationDate.errors?.pattern" class="form-text text-danger" >Please enter a valid date in MM/YY format.</small>
+            </div>
+        </div>
+    </div>
+    <div class="form-group" *ngIf="isAddMode">
+        <button type="submit" class="btn btn-primary btn-md btn-block mt-4">SUBMIT</button>
+    </div>
+
+    <div class="row" *ngIf="!isAddMode">
+        <div class="col">
+            <button type="submit" class="btn btn-primary btn-md btn-block mt-4">UPDATE</button>
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-secondary btn-md btn-block mt-4" (click)="changeMode()">CANCEL</button>
+        </div>
+    </div>
+    
+
+</form>
