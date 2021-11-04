@@ -17,7 +17,7 @@ const app = express();
 const port = process.env.PORT || 8080
 
 app
-.use(requireHTTPS) //komen line ini bila local server
+//.use(requireHTTPS) //komen line ini bila local server
 //mengikuti nama app di angular.json
 // misal: ./dist/<NAMA APP DI output path>
 .use(express.static('./dist/paymentApp')); 
