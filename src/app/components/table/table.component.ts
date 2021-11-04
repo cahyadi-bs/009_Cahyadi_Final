@@ -18,10 +18,10 @@ export class TableComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  deletePayment(id:number){  
+  deletePayment(payment:Payment){  
     Swal.fire({  
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      title: "Are you sure?",
+      html: `You're about to delete: <br><br> Card Owner Name : ${payment.cardOwnerName}<br>Card Number: ${payment.cardNumber} <br><br> You won't be able to revert this!`,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -34,8 +34,8 @@ export class TableComponent implements OnInit {
           'Payment has been deleted.',  
           'success',
         )
-        this.paymentService.delete(id).subscribe(res => {
-          this.payments = this.payments.filter(item => item.paymentDetailId !== id);
+        this.paymentService.delete(payment.paymentDetailId).subscribe(res => {
+          this.payments = this.payments.filter(item => item.paymentDetailId !== payment.paymentDetailId);
           //console.log('Post deleted successfully!');
         })
       } else if (result.dismiss === Swal.DismissReason.cancel) {  

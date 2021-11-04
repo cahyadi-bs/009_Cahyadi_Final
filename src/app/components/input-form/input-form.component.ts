@@ -47,7 +47,8 @@ export class InputFormComponent implements OnInit {
 
     this.inputForm = new FormGroup({
       cardOwnerName: new FormControl('', [
-        Validators.required
+        Validators.required,
+        Validators.pattern("^[a-zA-Z_][a-zA-Z0-9_]*"),
       ]),
       cardNumber: new FormControl('', [
         Validators.required,

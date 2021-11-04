@@ -11,6 +11,7 @@
             required>
         <div *ngIf="submitted && f.cardOwnerName.errors">
             <small *ngIf="f.cardOwnerName.errors?.required" class="form-text text-danger" >Card Owner Name is required</small>
+            <small *ngIf="f.cardOwnerName.errors?.pattern" class="form-text text-danger" >Cannot start with number</small>
         </div>
     </div>
     <div class="form-group">
